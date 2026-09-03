@@ -1,8 +1,8 @@
 from telethon import TelegramClient
 
 # Dapatkan dari my.telegram.org
-api_id = 'ISI_API_ID_KAMU'
-api_hash = 'ISI_API_HASH_KAMU'
+api_id = '38828922'
+api_hash = '7d2b8b00305fe4614bfc9c04661e0877'
 
 async def get_telegram_posts(channel_username, limit=5):
     async with TelegramClient('session_name', api_id, api_hash) as client:
