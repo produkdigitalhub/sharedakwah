@@ -1,8 +1,7 @@
 import instaloader
 
 class MedsosScraper:
-    def __init__(self):
-        # Inisialisasi tanpa gambar/video agar efisien & cepat
+    def __init__(self, username=None, password=None):
         self.L = instaloader.Instaloader(
             download_pictures=False,
             download_videos=False,
@@ -10,8 +9,16 @@ class MedsosScraper:
             save_metadata=False,
             compress_json=False
         )
+        
+        # Login untuk menghindari Error 429
+        if username and password:
+            try:
+                self.L.login(username, password)
+                print("Berhasil login ke Instagram.")
+            except Exception as e:
+                print(f"Gagal login: {e}")
 
-    def scrape_instagram_profile(self, target_account: str, limit: int = 5):
+       def scrape_instagram_profile(self, target_account: str, limit: int = 5):
         """
         Mengambil postingan terbaru dari akun Instagram publik.
         """
