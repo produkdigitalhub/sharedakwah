@@ -3,7 +3,6 @@ from modules.spinner import ContentSpinner
 def main():
     print("=== PENGUJIAN MODUL CONTENT SPINNER ===\n")
     
-    # Inisialisasi Spinner
     spinner = ContentSpinner()
     
     # Contoh teks postingan kajian (seolah-olah hasil dari scraper)
