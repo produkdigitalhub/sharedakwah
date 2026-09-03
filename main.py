@@ -1,23 +1,24 @@
-from modules.scraper import MedsosScraper
+from modules.spinner import ContentSpinner
 
 def main():
-    scraper = MedsosScraper()
+    print("=== PENGUJIAN MODUL CONTENT SPINNER ===\n")
     
-    # Masukkan akun target kajian di sini
-    target_akun = "infokajianmakassar" 
-    print(f"Menjalankan scraper untuk @{target_akun}...\n")
+    # Inisialisasi Spinner
+    spinner = ContentSpinner()
     
-    hasil = scraper.scrape_instagram_profile(target_account=target_akun, limit=3)
+    # Contoh teks postingan kajian (seolah-olah hasil dari scraper)
+    caption_contoh = """
+    Bismillah, hadirlah kajian rutin besok malam Minggu di Masjid Raya Makassar. 
+    Tema: Menjaga Hati di Akhir Zaman bersama Ust. Ahmad. 
+    Acara gratis dan terbuka untuk umum. Silakan ajak keluarga dan kerabat!
+    """
     
-    if not hasil:
-        print("Tidak ada data ditemukan atau akun dibatasi.")
-        return
-
-    for idx, post in enumerate(hasil, 1):
-        print(f"=== Post {idx} [{post['date']}] ===")
-        print(f"Link: {post['url']}")
-        print(f"Caption:\n{post['caption'][:200]}...")
-        print("=" * 40 + "\n")
+    print("--- TEKS ASLI ---")
+    print(caption_contoh.strip())
+    
+    print("\n--- HASIL SPINNER (REWRITE) ---")
+    hasil_spin = spinner.spin_text(caption_contoh)
+    print(hasil_spin)
 
 if __name__ == "__main__":
     main()
